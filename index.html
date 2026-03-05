@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus Salud · Cuidando tu salud con excelencia</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --azul-profundo: #0a2647;
+            --azul-medio: #1e3c72;
+            --azul-claro: #e6f0fa;
+            --azul-acero: #2c3e50;
+            --blanco-rotundo: #ffffff;
+            --sombra: 0 10px 25px -5px rgba(0, 20, 40, 0.2);
+            --sombra-hover: 0 20px 30px -10px rgba(10, 37, 64, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--blanco-rotundo);
+            color: #1e2b37;
+            line-height: 1.5;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        header {
+            background-color: var(--blanco-rotundo);
+            box-shadow: 0 2px 20px rgba(0,40,70,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--azul-profundo);
+        }
+
+        .logo i {
+            color: var(--azul-medio);
+            font-size: 2.2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--azul-acero);
+            font-size: 1.1rem;
+            transition: color 0.2s;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--azul-medio);
+            border-bottom-color: var(--azul-medio);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--azul-profundo);
+            cursor: pointer;
+        }
+
+        /* ===== BOTÓN WHATSAPP FLOTANTE ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 60px;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 99;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 2px solid white;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20b859;
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(10,38,71,0.85) 0%, rgba(30,60,114,0.75) 100%), 
+                        url('https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px);
+            padding: 3rem 4rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero .lema {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 0.7rem 2.5rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .btn-especialistas {
+            background-color: white;
+            color: var(--azul-profundo);
+            border: none;
+            padding: 1rem 2.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 30, 70, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .btn-especialistas:hover {
+            background-color: #f0f8ff;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 35px rgba(0, 30, 70, 0.5);
+        }
+
+        /* ===== SERVICIOS ===== */
+        .servicios {
+            padding: 5rem 2rem;
+            background-color: var(--azul-claro);
+            text-align: center;
+        }
+
+        .servicios h2 {
+            font-size: 2.8rem;
+            color: var(--azul-profundo);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .servicios h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--azul-medio);
+            margin: 0.8rem auto 0;
+            border-radius: 4px;
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .servicio-item {
+            background: white;
+            padding: 2.2rem 1.5rem;
+            border-radius: 30px;
+            box-shadow: var(--sombra);
+            transition: 0.3s;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .servicio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .servicio-item i {
+            font-size: 3.5rem;
+            color: var(--azul-medio);
+            margin-bottom: 1.2rem;
+        }
+
+        .servicio-item h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--azul-profundo);
+        }
+
+        /* ===== ESPECIALIDADES (DOCTORES) ===== */
+        .especialidades {
+            padding: 5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .especialidades h2 {
+            font-size: 2.8rem;
+            color: var(--azul-profundo);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .especialidades h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--azul-medio);
+            margin: 0.8rem auto 0;
+            border-radius: 4px;
+        }
+
+        .grid-doctores {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .tarjeta-doctor {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .tarjeta-doctor:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-hover);
+            border-color: var(--azul-claro);
+        }
+
+        .tarjeta-doctor i {
+            font-size: 3rem;
+            color: var(--azul-medio);
+            margin-bottom: 1.2rem;
+            background: var(--azul-claro);
+            padding: 1rem;
+            border-radius: 60px;
+        }
+
+        .tarjeta-doctor h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--azul-profundo);
+            margin-bottom: 0.4rem;
+        }
+
+        .tarjeta-doctor p {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+
+        /* ===== TESTIMONIOS ===== */
+        .testimonios {
+            background: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .testimonios h2 {
+            font-size: 2.8rem;
+            color: var(--azul-profundo);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .testimonios h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--azul-medio);
+            margin: 0.8rem auto 0;
+            border-radius: 4px;
+        }
+
+        .grid-testimonios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonio-card {
+            background: var(--azul-claro);
+            padding: 2.5rem 2rem;
+            border-radius: 40px;
+            box-shadow: var(--sombra);
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .testimonio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .testimonio-card i.fa-quote-left {
+            font-size: 2.5rem;
+            color: var(--azul-medio);
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+
+        .testimonio-card p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #1e2b37;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonio-cliente {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .testimonio-cliente i {
+            font-size: 3rem;
+            color: var(--azul-medio);
+            background: white;
+            border-radius: 50%;
+            padding: 0.5rem;
+        }
+
+        .testimonio-cliente span {
+            font-weight: 600;
+            color: var(--azul-profundo);
+        }
+
+        /* ===== NOSOTROS (sin año) ===== */
+        .nosotros {
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            padding: 5rem 2rem;
+        }
+
+        .nosotros-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .nosotros-texto {
+            flex: 1 1 400px;
+        }
+
+        .nosotros-texto h2 {
+            font-size: 2.8rem;
+            color: var(--azul-profundo);
+            margin-bottom: 1.5rem;
+        }
+
+        .nosotros-texto p {
+            font-size: 1.2rem;
+            color: #1e2b37;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .nosotros-texto .destacado {
+            font-weight: 600;
+            color: var(--azul-medio);
+            font-size: 1.4rem;
+        }
+
+        .nosotros-imagen {
+            flex: 1 1 400px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 40px rgba(0,30,60,0.2);
+        }
+
+        .nosotros-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .nosotros-imagen:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ===== CONTACTO (con formulario y redes) ===== */
+        .contacto {
+            background-color: white;
+            padding: 5rem 2rem;
+        }
+
+        .contacto-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .contacto-info {
+            flex: 1 1 350px;
+        }
+
+        .contacto-info h2 {
+            font-size: 2.8rem;
+            color: var(--azul-profundo);
+            margin-bottom: 2rem;
+        }
+
+        .contacto-detalle {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .contacto-item i {
+            width: 45px;
+            height: 45px;
+            background: var(--azul-claro);
+            color: var(--azul-medio);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .contacto-item a, .contacto-item span {
+            color: #1e293b;
+            text-decoration: none;
+        }
+
+        .contacto-item a:hover {
+            color: var(--azul-medio);
+            text-decoration: underline;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1.2rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .redes-sociales a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--azul-claro);
+            color: var(--azul-medio);
+            border-radius: 50%;
+            font-size: 1.8rem;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .redes-sociales a:hover {
+            background: var(--azul-medio);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* formulario */
+        .formulario-contacto {
+            flex: 1 1 450px;
+            background: var(--azul-claro);
+            padding: 2.5rem;
+            border-radius: 40px;
+            box-shadow: var(--sombra);
+        }
+
+        .formulario-contacto h3 {
+            font-size: 2rem;
+            color: var(--azul-profundo);
+            margin-bottom: 1.8rem;
+        }
+
+        .campo {
+            margin-bottom: 1.5rem;
+        }
+
+        .campo input, .campo textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 60px;
+            font-size: 1rem;
+            background: white;
+            border: 1px solid transparent;
+        }
+
+        .campo textarea {
+            border-radius: 30px;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .campo input:focus, .campo textarea:focus {
+            outline: none;
+            border-color: var(--azul-medio);
+            box-shadow: 0 0 0 3px rgba(30,60,114,0.2);
+        }
+
+        .btn-enviar {
+            background-color: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn-enviar:hover {
+            background-color: var(--azul-profundo);
+        }
+
+        .mapa {
+            flex: 1 1 450px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            min-height: 300px;
+            margin-top: 2rem;
+        }
+
+        .mapa iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            border: 0;
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--azul-profundo);
+            color: #d1e0f0;
+            padding: 3.5rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col p {
+            margin: 1rem 0;
+            line-height: 1.7;
+        }
+
+        .footer-col .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col .footer-logo i {
+            color: #7aa5d9;
+        }
+
+        .footer-col h4 {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdd3f0;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-col .contacto-footer p {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col .contacto-footer i {
+            width: 30px;
+            color: #7aa5d9;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.95rem;
+        }
+
+        @media screen and (max-width: 850px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 75px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                padding: 2.5rem 0;
+                gap: 1.8rem;
+                box-shadow: 0 15px 20px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+                border-top: 1px solid var(--azul-claro);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero .lema { font-size: 1.3rem; }
+        }
+
+        @media screen and (max-width: 500px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .lema { font-size: 1.1rem; }
+            .hero-content { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/50487655578?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i> Escríbenos
+    </a>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-clinic-medical"></i>
+                <span>Plus Salud</span>  <!-- quitado "Clínica" -->
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Plus Salud</h1>
+                <p class="lema">Salud Física, Nutricional, Mental y Dental con Profesionales Cerquita de Ti</p>
+                <a href="#especialidades" class="btn-especialistas">
+                    <i class="fas fa-user-md"></i> Conoce a nuestros especialistas
+                </a>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="servicios" class="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="grid-servicios">
+                <div class="servicio-item"><i class="fas fa-stethoscope"></i><h3>Medicina General</h3></div>
+                <div class="servicio-item"><i class="fas fa-tooth"></i><h3>Odontología</h3></div>
+                <div class="servicio-item"><i class="fas fa-brain"></i><h3>Psicología</h3></div>
+                <div class="servicio-item"><i class="fas fa-carrot"></i><h3>Nutrición</h3></div>
+                <div class="servicio-item"><i class="fas fa-bone"></i><h3>Ortopedia</h3></div>
+                <div class="servicio-item"><i class="fas fa-lungs"></i><h3>Medicina Interna</h3></div>
+            </div>
+        </section>
+
+        <!-- ESPECIALIDADES (DOCTORES) -->
+        <section id="especialidades" class="especialidades">
+            <h2>Nuestros Especialistas</h2>
+            <div class="grid-doctores">
+                <div class="tarjeta-doctor"><i class="fas fa-bone"></i><h3>Mario Moya</h3><p>Ortopedia</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-scalpel"></i><h3>Pablo Borjas</h3><p>Cirujano</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-stethoscope"></i><h3>Odalis Cerrato</h3><p>Internista</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-female"></i><h3>Daisy Carbajal</h3><p>Ginecóloga</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-dna"></i><h3>Pablo Espinoza</h3><p>Oncólogo</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-carrot"></i><h3>Yadira Cabrera</h3><p>Nutricionista</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-apple-alt"></i><h3>Rosa Sierra</h3><p>Nutricionista</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-leaf"></i><h3>María Valeriano</h3><p>Nutricionista</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-brain"></i><h3>Mario Cortes</h3><p>Psicólogo</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-heart"></i><h3>Stephany Melgar</h3><p>Psicóloga</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-smile"></i><h3>Claudia Amador</h3><p>Psicóloga</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-eye"></i><h3>Johana Gómez</h3><p>Optometrista</p></div>
+                <div class="tarjeta-doctor"><i class="fas fa-user-md"></i><h3>Alejandra Flores</h3><p>Médico General</p></div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIOS (nueva sección) -->
+        <section class="testimonios">
+            <h2>Lo que dicen nuestros pacientes</h2>
+            <div class="grid-testimonios">
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Excelente atención, los especialistas son muy humanos y resuelven todas mis dudas. Me siento en buenas manos."</p>
+                    <div class="testimonio-cliente">
+                        <i class="fas fa-user-circle"></i>
+                        <span>María F. · Paciente</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"La clínica tiene un ambiente muy agradable y el servicio de nutrición me ayudó a mejorar mi calidad de vida."</p>
+                    <div class="testimonio-cliente">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Carlos R. · Paciente</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Siempre encuentro horarios disponibles y el equipo de psicología es increíble. 100% recomendado."</p>
+                    <div class="testimonio-cliente">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Ana L. · Paciente</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOSOTROS (sin año) -->
+        <section id="nosotros" class="nosotros">
+            <div class="nosotros-container">
+                <div class="nosotros-texto">
+                    <h2>Sobre Plus Salud</h2>
+                    <p class="destacado">Cuidando tu salud con excelencia.</p>
+                    <p>Comprometidos con tu bienestar integral, ofrecemos atención cercana y profesional en un solo lugar. Nuestra clínica nació del sueño de crear un espacio donde la salud física, nutricional, mental y dental se integren para brindar un cuidado completo a las familias hondureñas.</p>
+                    <p>Hoy, gracias a un equipo de más de 20 especialistas, seguimos creciendo sin perder la calidez que nos caracteriza. <strong>¡Estamos cerquita de ti!</strong></p>
+                </div>
+                <div class="nosotros-imagen">
+                    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=2070&auto=format&fit=crop" alt="Equipo médico de Plus Salud">
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO + FORMULARIO + REDES -->
+        <section id="contacto" class="contacto">
+            <div class="contacto-container">
+                <div class="contacto-info">
+                    <h2>Contacto</h2>
+                    <div class="contacto-detalle">
+                        <div class="contacto-item"><i class="fas fa-map-marker-alt"></i><span>Col. Las Minitas, Av. Juan Lindo, Tegucigalpa</span></div>
+                        <div class="contacto-item"><i class="fas fa-phone-alt"></i><a href="tel:+50422345678">+504 2234-5678</a> / <a href="tel:+50487655578">+504 8765-5578</a></div>
+                        <div class="contacto-item"><i class="fas fa-envelope"></i><a href="mailto:plusalud.info@gmail.com">plusalud.info@gmail.com</a></div>
+                    </div>
+                    <!-- Redes sociales con Instagram @plussaludhn -->
+                    <div class="redes-sociales">
+                        <a href="https://web.facebook.com/plussaludhn" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/plussaludhn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:plusalud.info@gmail.com" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <a href="https://web.facebook.com/plussaludhn" target="_blank" rel="noopener" class="btn-facebook" style="background-color:#1877f2; color:white; padding:0.8rem 2rem; border-radius:40px; display:inline-flex; gap:0.5rem; text-decoration:none; margin-top:1rem;">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                </div>
+
+                <!-- FORMULARIO DE CONTACTO (con Formspree) -->
+                <div class="formulario-contacto">
+                    <h3>Déjanos tu mensaje</h3>
+                    <form action="https://formspree.io/f/YOUR_ACCESS_KEY" method="POST">
+                        <!-- Reemplazar YOUR_ACCESS_KEY por una clave real de Formspree -->
+                        <div class="campo">
+                            <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="campo">
+                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                        </div>
+                        <div class="campo">
+                            <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar">Enviar mensaje <i class="fas fa-paper-plane"></i></button>
+                        <p style="font-size:0.85rem; margin-top:1rem;">Los mensajes se enviarán a <strong>plusalud.info@gmail.com</strong> (requiere configuración en Formspree).</p>
+                    </form>
+                </div>
+            </div>
+            <!-- MAPA debajo del formulario/info -->
+            <div style="max-width:1300px; margin:2rem auto 0;">
+                <div class="mapa">
+                    <iframe src="https://maps.google.com/maps?q=Las%20Minitas%20Tegucigalpa%20Honduras&output=embed" allowfullscreen="" loading="lazy" title="Ubicación"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i> PLUSSALUD
+                </div>
+                <p>Cuidando tu salud con excelencia. Comprometidos con tu bienestar integral.</p>
+                <div class="redes-sociales" style="justify-content: flex-start; margin-top:1rem;">
+                    <a href="https://web.facebook.com/plussaludhn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/plussaludhn" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:plusalud.info@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                    <li><a href="#especialidades"><i class="fas fa-chevron-right"></i> Especialidades</a></li>
+                    <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                    <li><a href="#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Medicina General</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Odontología</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Psicología</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Nutrición</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Ortopedia</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Medicina Interna</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <div class="contacto-footer">
+                    <p><i class="fas fa-map-marker-alt"></i> Col. Las Minitas, Av. Juan Lindo</p>
+                    <p><i class="fas fa-phone-alt"></i> +504 2234-5678</p>
+                    <p><i class="fas fa-phone-alt"></i> +504 8765-5578</p>
+                    <p><i class="fas fa-envelope"></i> plusalud.info@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Plus Salud · Todos los derechos reservados. Atención: Lunes a Viernes 8:00 a 18:00</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    const icon = hamburger.querySelector('i');
+                    if (navMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        const icon = hamburger.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === "#" || href === "") return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+    <!-- Aviso: reemplazar YOUR_ACCESS_KEY en el formulario con una clave real de Formspree -->
+</body>
+</html>
